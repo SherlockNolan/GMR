@@ -30,6 +30,12 @@
 
 This repo is licensed under the [MIT License](LICENSE).
 
+## Local Q1 / LAFAN1 workflow
+
+Q1 model preparation, CPU batch retargeting and output conventions are documented
+in [docs/q1_lafan1.md](docs/q1_lafan1.md). The source assets and downloaded motions
+are kept in the adjacent SMP repository.
+
 
 # News & Updates
 - **2026-01-21:** GMR now supports [Xsens](https://www.xsens.com/) BVH offline data.

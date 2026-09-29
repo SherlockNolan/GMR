@@ -3,8 +3,10 @@ import pathlib
 HERE = pathlib.Path(__file__).parent
 IK_CONFIG_ROOT = HERE / "ik_configs"
 ASSET_ROOT = HERE / ".." / "assets"
+Q1_MODEL_PATH = HERE / ".." / ".." / "smp" / "artifacts" / "models" / "q1" / "q1_gmr.xml"
 
 ROBOT_XML_DICT = {
+    "q1": Q1_MODEL_PATH,
     "unitree_g1": ASSET_ROOT / "unitree_g1" / "g1_mocap_29dof.xml",
     "unitree_g1_with_hands": ASSET_ROOT / "unitree_g1" / "g1_mocap_29dof_with_hands.xml",
     "unitree_h1": ASSET_ROOT / "unitree_h1" / "h1.xml",
@@ -47,6 +49,7 @@ IK_CONFIG_DICT = {
         "fourier_gr3": IK_CONFIG_ROOT / "smplx_to_gr3.json",
     },
     "bvh_lafan1":{
+        "q1": IK_CONFIG_ROOT / "bvh_lafan1_to_q1.json",
         "unitree_g1": IK_CONFIG_ROOT / "bvh_lafan1_to_g1.json",
         "unitree_g1_with_hands": IK_CONFIG_ROOT / "bvh_lafan1_to_g1.json",
         "booster_t1_29dof": IK_CONFIG_ROOT / "bvh_lafan1_to_t1_29dof.json",
@@ -80,6 +83,7 @@ IK_CONFIG_DICT = {
 
 
 ROBOT_BASE_DICT = {
+    "q1": "pelvis",
     "unitree_g1": "pelvis",
     "unitree_g1_with_hands": "pelvis",
     "unitree_h1": "pelvis",
@@ -101,6 +105,7 @@ ROBOT_BASE_DICT = {
 }
 
 VIEWER_CAM_DISTANCE_DICT = {
+    "q1": 1.5,
     "unitree_g1": 2.0,
     "unitree_g1_with_hands": 2.0,
     "unitree_h1": 3.0,

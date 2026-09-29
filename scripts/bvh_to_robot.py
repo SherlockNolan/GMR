@@ -1,6 +1,8 @@
 import argparse
 import pathlib
 import time
+import sys
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 from general_motion_retargeting import GeneralMotionRetargeting as GMR
 from general_motion_retargeting import RobotMotionViewer
 from general_motion_retargeting.utils.lafan1 import load_bvh_file
@@ -36,7 +38,7 @@ if __name__ == "__main__":
     
     parser.add_argument(
         "--robot",
-        choices=["unitree_g1", "unitree_g1_with_hands", "booster_t1", "stanford_toddy", "fourier_n1", "engineai_pm01", "pal_talos"],
+        choices=["q1", "unitree_g1", "unitree_g1_with_hands", "booster_t1", "stanford_toddy", "fourier_n1", "engineai_pm01", "pal_talos"],
         default="unitree_g1",
     )
     
@@ -136,6 +138,8 @@ if __name__ == "__main__":
 
         # retarget
         qpos = retargeter.retarget(smplx_data)
+        if args.save_path is not None:
+            qpos_list.append(qpos.copy())
         
 
         # visualize
@@ -157,8 +161,6 @@ if __name__ == "__main__":
                 break
    
         
-        if args.save_path is not None:
-            qpos_list.append(qpos)
     
     if args.save_path is not None:
         import pickle
